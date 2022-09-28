@@ -1,5 +1,23 @@
 # Tools for authoring and serving codelabs
 
+## Getting the sample site running locally in a DRW env on an M1 mac...
+Assuming...
+- go1.19.1 darwin/arm64
+- node v18.8.0
+- claat (version??? installed in $HOME/go/bin, and $HOME/go/bin is in PATH)
+
+Prepared from [Zarin Lokhandwala's tutorial](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd).
+```
+cd site
+npm install
+npm install -g gulp-cli
+cd codelabs
+# Export md to html...
+claat export how-to-write-a-codelab.md
+cd ..
+gulp serve --codelabs-dir=codelabs
+```
+
 [![Demo](https://storage.googleapis.com/claat/demo.png)](https://storage.googleapis.com/claat/demo.mp4)
 
 Codelabs are interactive instructional tutorials, which can be authored in Google Docs
