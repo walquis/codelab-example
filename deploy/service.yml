@@ -1,0 +1,20 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: chris-helloworld-wl
+    namespace: chris-helloworld-ns
+  spec:
+    ports:
+    - name: 8080tcp02
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      workload.user.cattle.io/workloadselector: deployment-chris-helloworld
+    sessionAffinity: None
+    type: ClusterIP
+kind: List
+metadata:
+  resourceVersion: ""

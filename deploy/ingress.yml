@@ -1,0 +1,27 @@
+apiVersion: v1
+items:
+- apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    name: chris-helloworld
+    namespace: chris-helloworld-ns
+    annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: /helloworld/$2
+  spec:
+    ingressClassName: nginx
+    rules:
+    - host: chris-helloworld.appr.drw
+      http:
+        paths:
+        - backend:
+            serviceName: chris-helloworld-wl
+            servicePort: 8080
+          path: /(/|$)(.*)
+          pathType: Prefix
+    tls:
+    - hosts:
+      - chris-helloworld.appr.drw
+      secretName: appr-dot-drw-wildcard-cert
+kind: List
+metadata:
+  resourceVersion: ""
