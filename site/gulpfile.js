@@ -343,7 +343,10 @@ gulp.task('serve', gulp.series(
     'watch',
     () => {
       return gulp.src('build')
-        .pipe(webserver(opts.webserver()));
+        .pipe(webserver( {
+          livereload: false,
+          host: '0.0.0.0'
+        } ));
     }
   )
 ));
