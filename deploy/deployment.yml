@@ -4,16 +4,16 @@ items:
   kind: Deployment
   metadata:
     labels:
-      workload.user.cattle.io/workloadselector: deployment-chris-helloworld
-    name: chris-helloworld-wl
-    namespace: chris-helloworld-ns
+      workload.user.cattle.io/workloadselector: deployment-codelabs
+    name: codelabs-wl
+    namespace: codelabs-ns
   spec:
     progressDeadlineSeconds: 600
     replicas: 1
     revisionHistoryLimit: 10
     selector:
       matchLabels:
-        workload.user.cattle.io/workloadselector: deployment-chris-helloworld
+        workload.user.cattle.io/workloadselector: deployment-codelabs
     strategy:
       rollingUpdate:
         maxSurge: 1
@@ -22,23 +22,23 @@ items:
     template:
       metadata:
         labels:
-          workload.user.cattle.io/workloadselector: deployment-chris-helloworld
+          workload.user.cattle.io/workloadselector: deployment-codelabs
       spec:
         containers:
-        - image: prod.harbor.drw/apprenticeship/chris-hw-on-tc
+        - image: prod.harbor.drw/apprenticeship/codelabs
           imagePullPolicy: Always
-          name: chris-helloworld-wl
+          name: codelabs-wl
           ports:
-          - containerPort: 8080
-            name: 8080tcp02
+          - containerPort: 8000
+            name: 8000tcp02
             protocol: TCP
           resources:
             limits:
               cpu: "1"
-              memory: 256Mi
+              memory: 2000Mi
             requests:
               cpu: 500m
-              memory: 128Mi
+              memory: 2000Mi
           securityContext:
             allowPrivilegeEscalation: false
             capabilities: {}

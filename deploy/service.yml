@@ -3,16 +3,16 @@ items:
 - apiVersion: v1
   kind: Service
   metadata:
-    name: chris-helloworld-wl
-    namespace: chris-helloworld-ns
+    name: codelabs-wl
+    namespace: codelabs-ns
   spec:
     ports:
-    - name: 8080tcp02
-      port: 8080
+    - name: 8000tcp02
+      port: 8000
       protocol: TCP
-      targetPort: 8080
+      targetPort: 8000
     selector:
-      workload.user.cattle.io/workloadselector: deployment-chris-helloworld
+      workload.user.cattle.io/workloadselector: deployment-codelabs
     sessionAffinity: None
     type: ClusterIP
 kind: List

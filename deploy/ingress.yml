@@ -3,24 +3,22 @@ items:
 - apiVersion: extensions/v1beta1
   kind: Ingress
   metadata:
-    name: chris-helloworld
-    namespace: chris-helloworld-ns
-    annotations:
-        nginx.ingress.kubernetes.io/rewrite-target: /helloworld/$2
+    name: codelabs-ingress
+    namespace: codelabs-ns
   spec:
     ingressClassName: nginx
     rules:
-    - host: chris-helloworld.appr.drw
+    - host: codelabs.appr.drw
       http:
         paths:
         - backend:
-            serviceName: chris-helloworld-wl
-            servicePort: 8080
-          path: /(/|$)(.*)
-          pathType: Prefix
+            serviceName: codelabs-wl
+            servicePort: 8000
+          path: /
+          pathType: ImplementationSpecific
     tls:
     - hosts:
-      - chris-helloworld.appr.drw
+      - codelabs.appr.drw
       secretName: appr-dot-drw-wildcard-cert
 kind: List
 metadata:
