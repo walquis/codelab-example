@@ -1,4 +1,7 @@
-# Tools for authoring and serving codelabs
+# Having a Go at an Internally Hosted Codelabs server
+This repo was cloned from https://github.com/googlecodelabs/tools.
+
+In order to get the local site up and running, tweaks were made according to [Zarin Lokhandwala's tutorial](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd) (the "excellent tutorial" referenced below).  In particular, the `site/codelabs/how-to-write-a-codelab.md` content was copy-pasted verbatim from that article.
 
 ## Getting the sample site running locally in a DRW env on an M1 mac...
 Assuming...
@@ -6,18 +9,45 @@ Assuming...
 - node v18.8.0
 - claat (version??? installed in $HOME/go/bin, and $HOME/go/bin is in PATH)
 
-Prepared from [Zarin Lokhandwala's tutorial](https://medium.com/@zarinlo/publish-technical-tutorials-in-google-codelab-format-b07ef76972cd).
 ```
 cd site
 npm install
 npm install -g gulp-cli
 cd codelabs
+
 # Export md to html...
-claat export how-to-write-a-codelab.md
+# Need the 'prefix' option, because Google shut off anonymous access to their default prefix, https://storage.googleapis.com.
+claat export -prefix /elements how-to-write-a-codelab.md
 cd ..
 gulp serve --codelabs-dir=codelabs
 ```
 
+At this point, you should have a codelab up and running on http://localhost:8000.
+
+## Deploying the Codelabs server to Kubernetes, version 0.0.1
+Run this script, wait a few seconds for k8s to finish the deployment, and then visit https://codelabs.appr.drw.
+```
+./docker-build-and-deploy-to-k8s.sh
+```
+If interested, setting up your own Codelabs site in Kubernetes is a matter of ...
+1. Defining a domain on ssdns.iss.drw.
+1. Copying your domain's certs into deploy/secret.yml.
+1. Getting a [Rancher](https://rancher.chhq/kube.drw) project created, along with a namespace on a k8s cluster.
+1. Substituting your domain for "codelabs.appr.drw" wherever it appears in deploy/*.yml.
+1. Getting a [Harbor](https://prod.harbor.drw) project created.
+1. Substituting your Harbor project for "apprenticeship" wherever it appears in docker-build-and-deploy-to-k8s.sh and deploy/deployment.yml.
+1. Adding your own codelabs, in the form of a Markdown file for each codelab, into site/codelabs.
+1. Running ./docker-build-and-deploy-to-k8s.sh
+
+Why version 0.0.1?  Because the Dockerfile is very inefficient, among other things; this is pretty much the simplest thing that could possibly work.  I haven't done any optimizing of the build at all.  For instance, a new codelab should be able to be published without rebuilding claat and the entire webserver.
+
+----
+----
+----
+
+# (From here on down, it's all straight from https://github.com/googlecodelabs/tools)
+
+# Tools for authoring and serving codelabs
 [![Demo](https://storage.googleapis.com/claat/demo.png)](https://storage.googleapis.com/claat/demo.mp4)
 
 Codelabs are interactive instructional tutorials, which can be authored in Google Docs

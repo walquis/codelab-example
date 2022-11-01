@@ -25,7 +25,7 @@ items:
           workload.user.cattle.io/workloadselector: deployment-codelabs
       spec:
         containers:
-        - image: prod.harbor.drw/apprenticeship/codelabs
+        - image: prod.harbor.drw/apprenticeship/codelabs:2022-11-01
           imagePullPolicy: Always
           name: codelabs-wl
           ports:
