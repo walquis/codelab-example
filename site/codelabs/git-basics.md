@@ -1,12 +1,12 @@
-summary: Collaborating with git
-id: collaborating-with-git
+summary: Git Basics
+id: git-basics
 categories: git
 tags: beginner
 status: Published 
 authors: cwalquist
 Feedback Link: https://dev.null
 
-# Collaborating with Git
+# Git Basics - Collaborating with Git
 <!-- ------------------------ -->
 ## Overview 
 Duration: 1
@@ -67,6 +67,10 @@ Work through the entire Objects and Trees Exercise, poking around in the project
 ### Wrap-up
 - Final comments.
 - Students complete feedback survey.
+
+## Lab 1.1 - local/remote workflow
+Duration: 20
+- Each member of the team commit and push at least one (non-merge-conflicting) change.
 
 
 <!-- ------------------------ -->

@@ -1,0 +1,25 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "/elements",
+  "mainga": "UA-49880327-14",
+  "updated": "2022-11-28T14:09:28-06:00",
+  "id": "git-basics",
+  "duration": 28,
+  "title": "Git Basics - Collaborating with Git",
+  "authors": "cwalquist",
+  "summary": "Git Basics",
+  "source": "git-basics.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "git"
+  ],
+  "tags": [
+    "beginner"
+  ],
+  "feedback": "https://dev.null",
+  "url": "git-basics"
+}
