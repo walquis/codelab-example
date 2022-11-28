@@ -68,45 +68,62 @@ Work through the entire Objects and Trees Exercise, poking around in the project
 - Final comments.
 - Students complete feedback survey.
 
-## Lab 1.1 - local/remote workflow
+<!-- ------------------------ -->
+## Sprint 1.1 - local/remote workflow
 Duration: 20
+
+### Instruction - Set up your team and your git repo
+Some orientation w.r.t. class and basic Git/Linux.
+### Lab 1.1 - local/remote workflow, with no merge conflicts
 - Each member of the team commit and push at least one (non-merge-conflicting) change.
 
+<!-- ------------------------ -->
+## Sprint 1.2 - git reset
+Duration: 30
+### Instruction
+Using each team's existing repo and git reset, demonstrate moving changes back and forth in The Three Trees.
+### Lab 1.2 - git reset
+Each member make changes and move them forward and back, using git commands including `git reset` with appropriate options.
 
 <!-- ------------------------ -->
-## Code Snippets
-Duration: 3
+## Sprint 1.3 - resolve merge conflicts
+Duration: 30
 
-To include code snippets you can do a few things. 
-- Inline highlighting can be done using the tiny tick mark on your keyboard: "`"
-- Embedded code
-
-### JavaScript
-
-```javascript
-{ 
-  key1: "string", 
-  key2: integer,
-  key3: "string"
-}
-```
-
-### Java
-
-```java
-for (statement 1; statement 2; statement 3) {
-  // code block to be executed
-}
-```
+### Instruction
+Walk the class through creating and resolving a merge conflict.
+### LAB 1.3 - resolve merge conflicts
+Each team member change same line in a file, and practice resolving merge conflict.
 
 <!-- ------------------------ -->
-## Hyperlinking and Embedded Images
-Duration: 1
-### Hyperlinking
-[Youtube - Halsey Playlists](https://www.youtube.com/user/iamhalsey/playlists)
+## 3 Objects, 3 Trees Exercise (can be homework)
+Duration: 60
 
-### Images
-![alt-text-here](assets/puppy.jpg)
+Work through the entire Objects and Trees Exercise, poking around in the project repo you started in Session 1. We'll have already touched on these concepts, but this exercise is designed to test and expand your understanding.
+
+<!-- ------------------------ -->
+## Sprint 2.1 - project collaboration
+Duration: 30
+
+### Instruction
+Branching and merging. A look at a sample project repo.
+### LAB 2.1 - project collaboration
+Feel free to use the sample project repo's commits for inspiration as to what your team should do.
+
+<!-- ------------------------ -->
+## Sprint 2.2 - `git rebase` and `git cherry-pick`
+Duration: 30
+
+### Instruction - Managing commits with 'git rebase' and 'git cherry-pick'.
+Demonstrate squashing the sample repo's last 3 commits. Discuss the caveats of altering already-pushed commits.
+
+### LAB 2.2 - rebase and cherry-pick
+
+### LAB 2.3 - More project collaboration
+Keep delivering changes to your website as a team.
+
+### Wrap-up
+- Final comments.
+- Feedback survey.
 
 <!-- ------------------------ -->
 ## References

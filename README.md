@@ -21,6 +21,7 @@ claat export -prefix /elements how-to-write-a-codelab.md
 cd ..
 gulp serve --codelabs-dir=codelabs
 ```
+Note that gulpfile.js and tasks/helpers/claat.js have been ~~hacked~~ modified to accomplish live-reload and also work around claat issues with mistaking local export&update for Google docs.  This issue manifests as the prompt `Authorize me at following URL, please`, and has something to do with claat's confusing a local path with slashes for a URL.
 
 At this point, you should have a codelab up and running on http://localhost:8000.
 
