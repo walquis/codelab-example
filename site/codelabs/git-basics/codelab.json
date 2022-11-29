@@ -1,15 +1,15 @@
 {
   "environment": "web",
   "format": "html",
-  "prefix": "/elements",
+  "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2022-11-28T17:12:00-06:00",
+  "updated": "2022-11-28T20:41:56-06:00",
   "id": "git-basics",
   "duration": 204,
   "title": "Git Basics - Collaborating with Git",
   "authors": "cwalquist",
   "summary": "Git Basics",
-  "source": "git-basics.md",
+  "source": "",
   "theme": "",
   "status": [
     "published"
