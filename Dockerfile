@@ -15,7 +15,7 @@ COPY --chown=nobody:nobody site .
 RUN mkdir /nonexistent && npm install && npm install gulp-cli && npm rebuild node-sass
 
 # Could probably make this another stage ... build the new Codelab
-RUN chown -R nobody: codelabs && chown nobody: /www && $(cd codelabs ; claat export  -prefix /elements *.md)
+RUN chown -R nobody: codelabs && chown nobody: /www && $(cd codelabs ; claat export *.md)
 
 USER nobody
 

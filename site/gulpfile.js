@@ -233,13 +233,12 @@ gulp.task('build:vulcanize', () => {
 // codelabs:export exports the codelabs
 gulp.task('codelabs:export', (callback) => {
   const source = args.source;
-
   if (source !== undefined) {
     const sources = Array.isArray(source) ? source : [source];
-    claat.run(CODELABS_DIR, 'export', '-prefix', '/elements', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, sources, callback);
+    claat.run(CODELABS_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, sources, callback);
   } else {
-    const codelabIds = collectCodelabs().map((c) => { return `${c.id}.md` });
-    claat.run(CODELABS_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, codelabIds, callback);
+    const codelabIds = collectCodelabs().map((c) => { return `${c.id}` });
+    claat.run(CODELABS_DIR, 'update', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, codelabIds, callback);
   }
 });
 
@@ -247,7 +246,6 @@ gulp.task('codelabs:export', (callback) => {
 // build builds all the assets
 gulp.task('build', gulp.series(
   'clean',
-  'codelabs:export',
   'build:codelabs',
   'build:css',
   'build:scss',
