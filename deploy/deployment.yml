@@ -25,7 +25,7 @@ items:
           workload.user.cattle.io/workloadselector: deployment-codelabs
       spec:
         containers:
-        - image: prod.harbor.drw/apprenticeship/codelabs:2022-11-23_13-37-57
+        - image: prod.harbor.drw/apprenticeship/codelabs:2022-11-30_16-37-55
           imagePullPolicy: Always
           name: codelabs-wl
           ports:
@@ -34,11 +34,11 @@ items:
             protocol: TCP
           resources:
             limits:
-              cpu: "1"
-              memory: 2000Mi
+              cpu: 1000m 
+              memory: 6000Mi
             requests:
               cpu: 500m
-              memory: 2000Mi
+              memory: 4000Mi
           securityContext:
             allowPrivilegeEscalation: false
             capabilities: {}
