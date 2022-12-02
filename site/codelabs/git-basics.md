@@ -116,7 +116,64 @@ Duration: 30
 ### Instruction - Managing commits with 'git rebase' and 'git cherry-pick'.
 Demonstrate squashing the sample repo's last 3 commits. Discuss the caveats of altering already-pushed commits.
 
-### LAB 2.2 - rebase and cherry-pick
+### LAB 2.2 - `git rebase`
+**Objective**: Practice using `git rebase` and `git rebase -i` from the command line.
+
+#### git Rebase
+- Create an empty git repo
+- Starting on branch `main` ...
+```
+$ mkdir rebase-practice
+$ cd !$
+$ git init .
+$ git checkout -b main
+```
+- Make 3+ commits to the repo.  Your commit graph should look something like this:
+```
+$ adog
+* 25a2e7a (HEAD -> main) add line 3 to afile
+* b34daef add line 2 to afile
+* ba2ca4d add line 1 to afile
+* fcf6a66 empty file
+```
+- Checkout on a new branch, that **starts from the first commit in the repo**.
+- Make 3+ commits on the new branch.
+- Your commit graph should now look something like this.  Verify that your new branch **diverges** from `main`.
+```
+$ adog
+* 0f37279 (HEAD -> newbranch) add line 3 to anotherFile
+* 89aef26 add line 2 to anotherFile
+* f31caf6 add line 1 to anotherFile
+* d528c0d empty second file
+| * 25a2e7a (main) add line 3 to afile
+| * b34daef add line 2 to afile
+| * ba2ca4d add line 1 to afile
+|/
+* fcf6a66 empty file
+```
+- Rebase the new branch onto main.
+- Verify that your branch's commits now "sit on top of `main`".
+```
+$ adog
+* 1a9bc0d (HEAD -> newbranch) add line 3 to anotherFile
+* 239980c add line 2 to anotherFile
+* e5c9354 add line 1 to anotherFile
+* b278a34 empty second file
+* 25a2e7a (main) add line 3 to afile
+* b34daef add line 2 to afile
+* ba2ca4d add line 1 to afile
+* fcf6a66 empty file
+```
+
+#### git Rebase -i
+(IN-PROGRESS)...
+- Make 4+ commits, doesn't matter on which branch.
+- Make sure your GIT_EDITOR env var is set appropriately.
+- `git rebase -i @^^^^`
+- Squash 4 commits down to 2.
+- Leave the earliest commit unchanged, except for rewording the commit message.
+
+## Sprint 2.3 - `git cherry-pick`
 
 ### LAB 2.3 - More project collaboration
 Keep delivering changes to your website as a team.
