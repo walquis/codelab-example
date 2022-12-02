@@ -16,12 +16,15 @@ npm install -g gulp-cli
 cd codelabs
 
 # Export md to html...
-# Need the 'prefix' option, because Google shut off anonymous access to their default prefix, https://storage.googleapis.com.
-claat export -prefix /elements how-to-write-a-codelab.md
+claat export how-to-write-a-codelab.md
 cd ..
 gulp serve --codelabs-dir=codelabs
 ```
 Note that gulpfile.js and tasks/helpers/claat.js have been ~~hacked~~ modified to accomplish live-reload and also work around claat issues with mistaking local export&update for Google docs.  This issue manifests as the prompt `Authorize me at following URL, please`, and has something to do with claat's confusing a local path with slashes for a URL.
+
+As of 2022-11-29, the reproducible behavior is as follows:
+- `claat export` works
+- `claat update` works the first time--but then it blanks out `source` in the codelab.json, which provokes claat to ask `Authorize me please`.  If you manually re-add e.g. "git-basics.md" as a value for `source` (or just re-run `claat export git-basics.md`), then update works once more.
 
 At this point, you should have a codelab up and running on http://localhost:8000.
 

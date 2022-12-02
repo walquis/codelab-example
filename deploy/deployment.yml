@@ -9,7 +9,7 @@ items:
     namespace: codelabs-ns
   spec:
     progressDeadlineSeconds: 600
-    replicas: 1
+    replicas: 2
     revisionHistoryLimit: 10
     selector:
       matchLabels:
@@ -25,7 +25,7 @@ items:
           workload.user.cattle.io/workloadselector: deployment-codelabs
       spec:
         containers:
-        - image: prod.harbor.drw/apprenticeship/codelabs:2022-11-30_16-37-55
+        - image: prod.harbor.drw/apprenticeship/codelabs:2022-11-23_13-37-57
           imagePullPolicy: Always
           name: codelabs-wl
           ports:

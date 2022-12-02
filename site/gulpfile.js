@@ -227,22 +227,6 @@ gulp.task('build:vulcanize', () => {
     .pipe(gulp.dest('build'));
 });
 
-//
-// Codelabs
-//
-// codelabs:export exports the codelabs
-gulp.task('codelabs:export', (callback) => {
-  const source = args.source;
-  if (source !== undefined) {
-    const sources = Array.isArray(source) ? source : [source];
-    claat.run(CODELABS_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, sources, callback);
-  } else {
-    const codelabIds = collectCodelabs().map((c) => { return `${c.id}` });
-    claat.run(CODELABS_DIR, 'update', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, codelabIds, callback);
-  }
-});
-
-
 // build builds all the assets
 gulp.task('build', gulp.series(
   'clean',
@@ -334,11 +318,6 @@ gulp.task('watch:images', () => {
   gulp.watch('app/images/**/*', gulp.series('build:images'));
 });
 
-// watch:codelabs watches codelabs files for changes and updates them
-gulp.task('watch:codelabs', () => {
-  gulp.watch('codelabs/*.md', gulp.series('build'));
-});
-
 // watch:images watches js files for changes and re-builds them
 gulp.task('watch:js', () => {
   const srcs = [
@@ -355,7 +334,6 @@ gulp.task('watch', gulp.parallel(
   'watch:html',
   'watch:images',
   'watch:js',
-  'watch:codelabs',
 ));
 
 // serve builds the website, starts the webserver, and watches for changes.
@@ -366,7 +344,7 @@ gulp.task('serve', gulp.series(
     () => {
       return gulp.src('build')
         .pipe(webserver( {
-          livereload: true,
+          livereload: false,
           host: '0.0.0.0'
         } ));
     }
@@ -380,6 +358,23 @@ gulp.task('serve:dist', gulp.series('dist', () => {
   return gulp.src('dist')
     .pipe(webserver(opts.webserver()));
 }));
+
+//
+// Codelabs
+//
+// codelabs:export exports the codelabs
+gulp.task('codelabs:export', (callback) => {
+  const source = args.source;
+
+  if (source !== undefined) {
+    const sources = Array.isArray(source) ? source : [source];
+    claat.run(CODELABS_DIR, 'export', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, sources, callback);
+  } else {
+    const codelabIds = collectCodelabs().map((c) => { return c.id });
+    claat.run(CODELABS_DIR, 'update', CODELABS_ENVIRONMENT, CODELABS_FORMAT, DEFAULT_GA, codelabIds, callback);
+  }
+});
+
 
 
 //
