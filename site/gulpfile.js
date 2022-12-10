@@ -345,7 +345,8 @@ gulp.task('serve', gulp.series(
       return gulp.src('build')
         .pipe(webserver( {
           livereload: false,
-          host: '0.0.0.0'
+          host: '0.0.0.0',
+          port: (process.env.PORT || 8000)
         } ));
     }
   )
