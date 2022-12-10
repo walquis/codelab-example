@@ -10,14 +10,12 @@ COPY --from=builder /go/bin/claat /usr/local/bin
 
 WORKDIR /www
 
-COPY --chown=nobody:nobody site .
+COPY site .
 
 RUN mkdir /nonexistent && npm install && npm install gulp-cli && npm rebuild node-sass
 
 # Could probably make this another stage ... build the new Codelab
-RUN chown -R nobody: codelabs && chown nobody: /www && $(cd codelabs ; claat export *.md)
-
-USER nobody
+RUN $(cd codelabs ; claat export *.md)
 
 EXPOSE 8000
 
