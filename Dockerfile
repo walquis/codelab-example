@@ -21,4 +21,4 @@ USER nobody
 
 EXPOSE 8000
 
-ENTRYPOINT ["./node_modules/.bin/gulp", "serve", "--codelabs-dir=codelabs"]
+CMD ["./node_modules/.bin/gulp", "serve", "--codelabs-dir=codelabs"]
