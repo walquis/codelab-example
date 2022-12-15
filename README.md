@@ -45,6 +45,23 @@ If interested, setting up your own Codelabs site in Kubernetes is a matter of ..
 
 Why version 0.0.1?  Because the Dockerfile is very inefficient, among other things; this is pretty much the simplest thing that could possibly work.  I haven't done any optimizing of the build at all.  For instance, a new codelab should be able to be published without rebuilding claat and the entire webserver.
 
+## Working locally
+Building an intermediate image that has everything except the .md files provides quick authoring iterations.
+```
+docker build -t intermediate -f `Dockerfile.intermediate`
+docker build -t final -f `Dockerfile.final`
+docker run -d -p 8000:8000 final
+```
+Then, after changing, say `git-basics.md`, just re-run these:
+```
+docker build -t final -f Dockerfile.final
+docker run -d -p 8000:8000 final
+```
+
+`Dockerfile` is good for publishing to Heroku, once you're satisfied with the results.
+
+(You can also just run `grip git-basics.md` if only editing markdown).
+
 ----
 ----
 ----
