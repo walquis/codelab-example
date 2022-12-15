@@ -53,7 +53,7 @@ The Prework consists of...
 - *LAB 1.3* - 30 min - merge conflicts - Each team member change same line in a file, and practice resolving merge conflict.
 
 ### 3 Objects, 3 Trees Exercise (can be homework or prework)
-Work through the entire Objects and Trees Exercise, poking around in the [Sample Project Repo](https://github.com/walquis/git-basics-sample-project-repo/commits/main){:target="_blank"}.
+Work through the entire Objects and Trees Exercise, poking around in the [Sample Project Repo](https://github.com/walquis/git-basics-sample-project-repo/commits/main).
 
 ### Session Two - Collaborate on the project; `git rebase`, `git 
 
@@ -71,7 +71,7 @@ Work through the entire Objects and Trees Exercise, poking around in the [Sample
 - *LAB 2.3* - 10 min - `git cherry-pick`
 
 #### *Sprint 2.4* - if time - Collaborate to deliver more changes to your website.
-Allocate tasks among your team, and practice.  The [Sample Project Repo](https://github.com/walquis/git-basics-sample-project-repo/commits/main){:target="_blank"} demonstrates some examples of changes your team could make.
+Allocate tasks among your team, and practice.  The [Sample Project Repo](https://github.com/walquis/git-basics-sample-project-repo/commits/main) demonstrates some examples of changes your team could make.
 
 ### Wrap-up
 - Questions/comments
@@ -206,7 +206,7 @@ Use the merge conflict resolution approach demonstrated in class to resolve the 
 ## 3 Objects, 3 Trees Exercise (can be homework or prework)
 Duration: 60
 
-Work through the entire Objects and Trees Exercise, poking around in the project repo you started in Session 1. We'll have already touched on these concepts, but this exercise is designed to test and expand your understanding.
+Work through the entire [Objects and Trees Exercise](https://walquis.github.io/git-basics-team-project/objects-and-trees-exercise), poking around in the [Sample Project Repo](https://github.com/walquis/git-basics-sample-project-repo/commits/main).
 
 <!-- ------------------------ -->
 ## Sprint 2.1 - project collaboration
@@ -218,7 +218,7 @@ Walk the class through an example of a workflow involving creating a local branc
 ### LAB 2.1 - project collaboration
 Practice delivering some changes to your website as a team.
 
-For inspiration as to tasks to assign each team member, use the content and commit history of the [Sample Project Repo](https://github.com/walquis/git-basics-sample-project-repo/commits/main){:target="_blank"}.
+For inspiration as to tasks to assign each team member, use the content and commit history of the [Sample Project Repo](https://github.com/walquis/git-basics-sample-project-repo/commits/main).
 
 <!-- ------------------------ -->
 ## Sprint 2.2 - `git rebase`
@@ -283,7 +283,7 @@ $ adog
 ```
 
 #### LAB 2.2.2 - `git rebase -i`
-Demonstrate squashing the sample repo's last 3 commits. Discuss the caveats of altering already-pushed commits.
+**Instruction**: Demonstrate squashing the sample repo's last 3 commits. Discuss the caveats of altering already-pushed commits.
 
 **Objective**: Use `git rebase -i` from the command line to squash all commits down to two.
 
@@ -313,8 +313,8 @@ Show cherry-picking a commit.
 1. Restore `newbranch` to where it was before any rebasing was done, i.e., to the commit with comment "add line 3 to anotherFile".  (Use `git reset --hard` to do this).
 1. Cherry-pick the commit from `main` labeled "add line 1 to afile" onto your `newbranch`.
 
-## Sprint 2.4 - Run some collaboration (if time)
-Keep delivering changes to your website as a team.  For inspiration as to tasks to assign each team member, use the content and commit history of the [Sample Project Repo](https://github.com/walquis/git-basics-sample-project-repo/commits/main){:target="_blank"}.
+## Sprint 2.4 - Collaborate on some coding (if time)
+Keep delivering changes to your website as a team.  For inspiration as to tasks to assign each team member, use the content and commit history of the [Sample Project Repo](https://github.com/walquis/git-basics-sample-project-repo/commits/main).
 
 ### Wrap-up
 - Final comments.
@@ -324,7 +324,7 @@ Keep delivering changes to your website as a team.  For inspiration as to tasks 
 ## References
 Duration: 1
 
-Most of these are from [Git-Scm.com](https://git-scm.com){:target="_blank"}.
+Most of these are from [Git-Scm.com](https://git-scm.com).
 
 - 1.1 - Nice-to-Know - Skim - 3 min - About Version Control
 - 1.3 - Fundamental - Read Carefully - 10 min - Git Basics
